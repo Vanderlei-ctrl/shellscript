@@ -1,0 +1,46 @@
+#! / bin / bash
+if [ -d  " / etc / squid / " ] ;  então
+    payload = " /etc/squid/payload.txt "
+elif [ -d  " / etc / squid3 / " ] ;  então
+	payload = " /etc/squid3/payload.txt "
+fi
+tput setaf 7 ; tput setab 4 ; tput bold ;  printf  ' % 35s% s% -10s \ n '  " Adicionar Host ao Proxy Squid "  ; tput sgr0
+if [ !  -f  " $ carga útil " ]
+então
+	tput setaf 7 ; tput setab 4 ; tput bold ;  echo  " "  ;  Eco  " Arquivo $ payload não encontrado "  ; tput sgr0
+	saída 1
+outro
+	tput setaf 2 ; tput bold ;  echo  " " ;  echo  "Os domínios atuais não são o arquivo $ payload : "  ; tput sgr0
+	tput setaf 3 ; tput bold ;  echo  " "  ; cat $ carga útil  ;  echo  " "  ; tput sgr0
+	read -p " Tipo ou domínio que você deseja adicionar à lista: " host
+	if [[ -z  $ host ]]
+	então
+		tput setaf 7 ; tput setab 4 ; tput bold ;  echo  " "  ;  echo  " Você digitou um vazio domínio ou não existe! "  ;  echo  " "  ; tput sgr0
+		saída 1
+	outro
+		if [[ ` grep -c " ^ $ host "  $ carga útil`  eq 1]]
+		então
+			tput setaf 7 ; tput setab 4 ; tput bold ;  echo  " "  ;  echo  " Ou o domínio $ host não existe $ arquivo de carga útil "  ;  echo  " "  ; tput sgr0
+			saída 1
+		outro
+			if [[ $ host  ! =  \. * ]]
+			então
+				tput setaf 7 ; tput setab 4 ; tput bold ;  echo  " "  ;  echo  " Você deve adicionar um domínio inicial ou como um ponto! "  ;  echo  " Por exemplo: .phreaker56.xyz "  ;  echo  "Não é necessário adicionar subdomínios para domínios que ainda não foram arquivados "  ;  echo  " Ou seja, não é necessário adicionar rechargewap.claro.com.br "  ;  echo  " se ou domain .claro.com.br já estiver sem arquivo. "  ;  echo  "; tput sgr0
+				saída 1
+			outro
+				echo  " $ host "  >>  $ carga útil  && grep -v " ^ $ "  $ carga útil  > / tmp / a && mv / tmp / a $ carga útil
+				tput setaf 7 ; tput setab 1 ; tput bold ;  echo  " "  ;  echo  " Arquivo $ carga atualizada ou domínio adicionado com sucesso: "  ; tput sgr0
+				tput setaf 3 ; tput bold ;  echo  " "  ; cat $ carga útil  ;  echo  " "  ; tput sgr0
+				if [ !  -f  " /etc/init.d/squid3 " ]
+				então
+					serviço squid3 recarregar
+				elif [ !  -f  " /etc/init.d/squid " ]
+				então
+					serviço de recarga de lula
+				fi	
+				tput setaf 7 ; tput setab 1 ; tput bold ;  echo  " "  ;  echo  " O Proxy Squid Proxy foi recarregado com sucesso! "  ;  echo  " "  ; tput sgr0
+				saída 1
+			fi
+		fi
+	fi
+fi

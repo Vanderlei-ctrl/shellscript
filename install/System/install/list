@@ -6,7 +6,7 @@
 # 	TELEGRAM CONTACT: http://t.me/crazy_vpn
 # 	TELEGRAM CHANNEL: http://t.me/sshplus
 # =============================================== ===
-_lvk = $ ( wget -qO- https://raw.github.com/Vanderlei-ctrl/shellscript/master/Install/System/Script/versao )
+_lvk = $ ( wget -qO- https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/Install/System/install/versao )
 IP = $ ( wget -qO- ipv4.icanhazip.com )
 IP2 = $ ( wget -qO- http://whatismyip.akamai.com/ )
 [[ " $ IP "  ! =  " $ IP2 " ]] && ipdovps = " $ IP2 "  || ipdovps = " $ IP "

@@ -33,8 +33,7 @@ echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m"
 tput cnorm
 }
 {
-apt-get update
-}
+apt-get install -y;
 }
 fun_attdate () {
 cp /etc/ssh/sshd_config /etc/ssh/sshd_back

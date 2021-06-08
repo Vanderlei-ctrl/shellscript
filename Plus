@@ -39,7 +39,6 @@ echo "apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.
 wget -O /bin/menuV1 https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/Install/menuV1 > /dev/null 2>&1; chmod +x /bin/menuV1
 wget -O /bin/menuV2 https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/Install/menuV2 > /dev/null 2>&1; chmod +x /bin/menuV2
 wget -O /bin/menuV3 https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/Install/menuV3 > /dev/null 2>&1; chmod +x /bin/menuV3
-}
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "BEM VINDO AO SSHPLUS MANAGER" ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"

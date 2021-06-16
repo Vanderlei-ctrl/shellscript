@@ -12,4 +12,3 @@ openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt
 #fica apertando enter os passos seguinte 
 cat stunnel.crt stunnel.key > stunnel.pem
 mv stunnel.pem /etc/stunnel/
-echo -ne "  \033[1;33mAGUARDE \033[1;37m- \033[1;33m["

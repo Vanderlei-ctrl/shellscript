@@ -5,4 +5,5 @@ openssl genrsa 1024 > stunnel.key
 openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt 
 cat stunnel.crt stunnel.key > stunnel.pem
 mv stunnel.pem /etc/stunnel/
-
+echo "apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/meustunnel4; chmod 777 meustunnel4; ./meustunnel4" > /bin/meustunnel4 && chmod +x /bin/meustunnel4 > /dev/null 2>&1
+wget -O /bin/menu https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/Install/menu > /dev/null 2>&1; chmod +x /bin/menu

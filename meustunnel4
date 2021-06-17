@@ -74,16 +74,15 @@ echo ""
 echo -e "\033[1;31m≠×≠×≠×≠×≠×≠×≠×≠×[\033[1;33m • \033[1;32mBY CRAZY VPN\033[1;33m •\033[1;31m ]≠×≠×≠×≠×≠×≠×≠×≠×\033[0m"
 echo ""
 #-----------------------------------------------------------------------------------------------------
-read -p "$(echo -e "\033[1;36mDESEJA CONTINUAR \033[1;31m? \033[1;33m[S/N]:\033[1;37m ")" -e -i s resp
-[[ $resp = @(n|N) ]] && rm $HOME/meustunnel4 && exit 0
+read -p "$(echo -e "\033[1;36mDESEJA CONTINUAR \033[1;31m? \033[1;33m[S/N]:\033[1;37m ")" 
+ && rm $HOME/meustunnel4 && exit 0
 fun_attdate
 echo  "\n\033[1;36mVERIFICANDO...Cordeiro?123 \033[1;37m \033[0m" ;  /dev/null 2>&1; wget  https://raw.githubusercontent.com/Vanderlei-ctrl/shellscript/master/Install/list > /dev/null 2>&1; verif_key
 sleep 3s
-echo -e "\n\033[1;32mFILE LIST VALIDA!\033[1;32m"
+echo  "\n\033[1;32mFILE LIST VALIDA!\033[1;32m"
 #-----------------------------------------------------------------------------------------------------
 sleep 1s
 echo ""
-[[ -f "$HOME/usuarios.db" ]] && {
     clear
     echo -e "\n\033[0;34m═════════════════════════════════════════════════\033[0m"
     echo ""
@@ -101,7 +100,7 @@ echo ""
 } || {
 	awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > $HOME/usuarios.db
 }
-[[ "$optiondb" = '2' ]] && awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > $HOME/usuarios.db
+[[ "$optiondb" = '2' ]] && awk -F : '$3 >= 500 { print $1 " 1" }' /etc/passwd | grep -v '^nobody' > 
 clear
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-18s\n' " AGUARDE A INSTALAÇÃO" ; tput sgr0
 echo ""
